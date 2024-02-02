@@ -42,7 +42,9 @@ export function getRandomColor() {
 
 ## Rupees in words
 ```bash
-export function fromNumberToWords(num: any) {
+var a = ['', 'one ', 'two ', 'three ', 'four ', 'five ', 'six ', 'seven ', 'eight ', 'nine ', 'ten ', 'eleven ', 'twelve ', 'thirteen ', 'fourteen ', 'fifteen ', 'sixteen ', 'seventeen ', 'eighteen ', 'nineteen '];
+var b = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+function fromNumberToWords(num: any) {
     if (!num) return;
     if ((num = num.toString()).length > 9) return 'overflow';
     let n: any = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
