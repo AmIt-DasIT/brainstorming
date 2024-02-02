@@ -330,7 +330,7 @@ function hexToRgb(hex) {
     };
 };
 
-rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
     return x.toString(16).padStart(2,0)
 }).join('')
 ```
