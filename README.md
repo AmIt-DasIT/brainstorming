@@ -31,13 +31,17 @@ function secondsToHms(d: number) {
 
 ## Random color generator
 ```bash
-export function getRandomColor() {
+function getRandomColor() {
     const color1 = Math.random() * 128;
     const color2 = Math.random() * 128;
     const color3 = Math.random() * 128;
 
     return `rgba(${color1},${color2},${color3},1)`;
 }
+
+function () {
+    return '#' + (((1 << 24) * Math.random()) | 0).toString(16).padStart(6, 0); // just a random color padded to 6 characters
+};
 ```
 
 ## Rupees in words
@@ -122,7 +126,7 @@ const validateMobileNumber = (value) => {
 };
 ```
 
-4. Truncate Description
+## Truncate Description
 ```bash
 const getTruncateDescription = (description, maxLength) => {
     if (description.length <= maxLength) {
@@ -145,7 +149,7 @@ console.log(truncateDescription);
  * 
  */
 ```
-5. Manage Client-Side Data (localStorage)
+## Manage Client-Side Data (localStorage)
 ```bash
 // Set data in localStorage
 function setLocalStorage(key, data) {
@@ -192,7 +196,7 @@ function setLocalStorage(key, data) {
   }
 ```
 
-6. Personalize User Greetings
+## Personalize User Greetings
 ```bash
 const getGreeting = () => {
 
@@ -222,6 +226,119 @@ console.log(getGreeting());
  * 
  */
 ```
+## Random number generator
+```bash
+const random = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+random(5, 10);
+// 7
+```
+## sleep() — Wait before running a code
+```bash
+function sleep(duration) {
+  return new Promise(resolve => {
+    setTimeout(resolve, duration);
+  });
+}
+// Pausing execution for 2 seconds
+async function exampleUsage() {
+  console.log('Before sleep');
+  await sleep(2000);
+  console.log('After sleep');
+}
+
+exampleUsage();
+```
+
+## Getting first ‘x’ amount of elements from array
+```bash
+function first(array, n = 1) {
+  if (n === 1) return array[0];
+  return array.filter((_, index) => index < n);
+}:
+const numbers = [1, 2, 3, 4, 5];
+
+// Retrieve the first element
+const firstElement = first(numbers);
+console.log('First Element:', firstElement); // Output: 1
+
+// Retrieve the first three elements
+const firstThreeElements = first(numbers, 3);
+console.log('First Three Elements:', firstThreeElements); // Output: [1, 2, 3]
+```
+
+## Getting values by key from an array of objects
+```bash
+function pluck(array, key) {
+  return array.map(element => element[key]);
+}
+const users = [
+  { id: 1, name: 'Alice', age: 30 },
+  { id: 2, name: 'Bob', age: 25 },
+  { id: 3, name: 'Charlie', age: 35 }
+];
+
+// Pluck the 'name' property from each user
+const names = pluck(users, 'name');
+console.log('Names:', names); // Output: ['Alice', 'Bob', 'Charlie']
+```
+
+## Generate Captcha
+```bash
+function (len = 8) {
+    return Array.apply(0, Array(len))
+        .map(function () {
+            return (function (charset) {
+                return charset.charAt(
+                    Math.floor(Math.random() * charset.length)
+                );
+            })(
+                'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+            );
+        })
+        .join('');
+};
+```
+
+## To Fade any Color
+```bash
+function (col, amt) {
+    const min = Math.min, max = Math.max;
+    const num = parseInt(col.replace(/#/g, ''), 16);
+    const r = min(255, max((num >> 16) + amt, 0));
+    const g = min(255, max((num & 0x0000FF) + amt, 0));
+    const b = min(255, max(((num >> 8) & 0x00FF) + amt, 0));
+    return '#' + (g | (b << 8) | (r << 16)).toString(16).padStart(6, 0);
+}
+```
+## Hex to RGB & RGB to Hex 
+```bash
+function hexToRgb(hex) {
+    const match = hex.replace(/#/, '').match(/.{1,2}/g);
+    return {
+        r: parseInt(match[0], 16),
+        g: parseInt(match[1], 16),
+        b: parseInt(match[2], 16)
+    };
+};
+
+rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+    return x.toString(16).padStart(2,0)
+}).join('')
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
