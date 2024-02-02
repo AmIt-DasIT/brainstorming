@@ -1,5 +1,10 @@
 ## Array of object sorting
 ```bash
+const array = [
+    { name: 'Event 1', date: new Date('2023-01-15') },
+    { name: 'Event 2', date: new Date('2022-12-20') },
+    { name: 'Event 3', date: new Date('2023-03-05') }
+];
 const sortByDate = (a: any, b: any) => {
     const date1  = new Date(a.date).valueOf();
     const date2  = new Date(b.date).valueOf();
