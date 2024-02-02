@@ -40,7 +40,8 @@ function getRandomColor() {
 }
 
 function () {
-    return '#' + (((1 << 24) * Math.random()) | 0).toString(16).padStart(6, 0); // just a random color padded to 6 characters
+    return '#' + (((1 << 24) * Math.random()) | 0).toString(16).padStart(6, 0);
+    // just a random color padded to 6 characters
 };
 ```
 
@@ -105,7 +106,8 @@ const validatePassword = (password) => {
 
     const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>/?]).{8,}$/;
     if (!regex.test(password)) {
-        return "Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one symbol.";
+        return "Password must contain at least 8 characters, including at least one uppercase
+                 letter, one lowercase letter, one number, and one symbol.";
     }
 
     return "Valid password";
@@ -137,7 +139,11 @@ const getTruncateDescription = (description, maxLength) => {
     return truncated + '...';
 }
 
-let truncateDescription = getTruncateDescription(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.`, 100);
+let truncateDescription = getTruncateDescription(`Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet,
+ adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa,
+ varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim
+ est eleifend mi, non fermentum diam nisl sit amet erat.`, 100);
 
 console.log(truncateDescription);
 
@@ -145,7 +151,7 @@ console.log(truncateDescription);
  * 
  * Output:
  * 
- * Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus torto...
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse...
  * 
  */
 ```
