@@ -63,13 +63,165 @@ function fromNumberToWords(num: any) {
 }
 ```
 
+## Convert any text into capitalized mode
+```bash
+const capitalizeText = (text) => {
+    return text.toLowerCase()
+    .replace(/(^|\s)\w/g, c => c.toUpperCase());
+};
 
+console.log(capitalizeText('learn to rest, not to quit'));
 
+/**
+ * 
+ * Output: Learn To Rest, Not To Quit
+ * 
+ */
+```
 
+## Form validation
+1. validateEmail
+```bash
+const validateEmail = (value) => {
+    if (!value) return "This field must not be empty.";
 
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(value)) {
+        return "Invalid email";
+    }
 
+    return "Valid email";
+};
+```
 
+2. validatePassword
+```bash
+const validatePassword = (password) => {
+    if (!password) return "This field must not be empty.";
 
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>/?]).{8,}$/;
+    if (!regex.test(password)) {
+        return "Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one symbol.";
+    }
+
+    return "Valid password";
+}
+```
+
+3. validateMobileNumber
+```bash
+const validateMobileNumber = (value) => {
+    if (!value) return "This field must not be empty.";
+
+    const regex = /^\d{10}$/;
+    if (!regex.test(value)) {
+        return "Invalid mobile number";
+    }
+
+    return "Valid mobile number";
+};
+```
+
+4. Truncate Description
+```bash
+const getTruncateDescription = (description, maxLength) => {
+    if (description.length <= maxLength) {
+        return description;
+    }
+
+    const truncated = description.substring(0, maxLength - 3);
+    return truncated + '...';
+}
+
+let truncateDescription = getTruncateDescription(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.`, 100);
+
+console.log(truncateDescription);
+
+/**
+ * 
+ * Output:
+ * 
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus torto...
+ * 
+ */
+```
+5. Manage Client-Side Data (localStorage)
+```bash
+// Set data in localStorage
+function setLocalStorage(key, data) {
+    try {
+      localStorage.setItem(key, JSON.stringify(data));
+      return true; // Data successfully stored
+    } catch (error) {
+      console.error(`Error setting data in localStorage for key "${key}":`, error);
+      return false; // Error occurred while storing data
+    }
+  }
+  
+  // Get data from localStorage
+  function getLocalStorage(key) {
+    try {
+      const storedData = localStorage.getItem(key);
+      return storedData ? JSON.parse(storedData) : null;
+    } catch (error) {
+      console.error(`Error retrieving data from localStorage for key "${key}":`, error);
+      return null; // Error occurred while retrieving data
+    }
+  }
+  
+  // Remove data from localStorage
+  function removeLocalStorage(key) {
+    try {
+      localStorage.removeItem(key);
+      return true; // Data successfully removed
+    } catch (error) {
+      console.error(`Error removing data from localStorage for key "${key}":`, error);
+      return false; // Error occurred while removing data
+    }
+  }
+  
+  // Clear all data in localStorage
+  function clearLocalStorage() {
+    try {
+      localStorage.clear();
+      return true; // localStorage cleared successfully
+    } catch (error) {
+      console.error("Error clearing localStorage:", error);
+      return false; // Error occurred while clearing localStorage
+    }
+  }
+```
+
+6. Personalize User Greetings
+```bash
+const getGreeting = () => {
+
+    const greetings = {
+        morning: "Good morning!",
+        afternoon: "Good afternoon!",
+        evening: "Good evening!",
+    };
+
+    const currentHour = new Date().getHours();
+
+    if (currentHour >= 5 && currentHour < 12)
+        return greetings.morning;
+    else
+        if (currentHour >= 12 && currentHour < 17)
+            return greetings.afternoon;
+        else
+            return greetings.evening;
+
+}
+
+console.log(getGreeting());
+
+/**
+ * 
+ * Output varies based on the time of day
+ * 
+ */
+```
 
 
 
