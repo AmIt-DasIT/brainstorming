@@ -1,4 +1,4 @@
-## Array of object sorting ----
+## Array of object sorting
 
 ```bash
 function secondsToHms(d: number) {
@@ -15,7 +15,7 @@ function secondsToHms(d: number) {
 }
 ```
 
-## 
+## Convert second to Hms
 
 ```bash
 function secondsToHms(d: number) {
