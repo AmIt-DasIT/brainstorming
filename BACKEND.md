@@ -1,8 +1,3 @@
-## To Apply Prettier in any file
-```bash 
-prettier --write {file_relative_path}
-```
-
 ## To Get a Dump file from database
 ```bash
 docker exec -t your-db-container pg_dumpall -c -U user_name databse_name > dump_`date +%Y-%m-%d"_"%H_%M_%S`.sql
